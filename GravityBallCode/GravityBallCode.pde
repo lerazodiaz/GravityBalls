@@ -24,7 +24,8 @@ void setup() {
 
   void draw() {
     //draw background to cover previous frame
-    background(0);
+    background(118,142,247);
+    fill(random(245));
     for (int i = 0; i <count; i++){
     //draw ball
     ellipse(x[i], y[i], diam[i], diam[i]);
