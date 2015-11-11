@@ -22,18 +22,19 @@ void setup() {
   }
 }
 
-  void draw() {
-    //draw background to cover previous frame
-    background(118,142,247);
-    fill(random(245));
-    for (int i = 0; i <count; i++){
+void draw() {
+  //draw background to cover previous frame
+  background(118, 142, 247);
+  fill(random(245));
+  for (int i = 0; i <count; i++) {
     //draw ball
     ellipse(x[i], y[i], diam[i], diam[i]);
 
     //add velocity to position
+    velY[i] = velY[i]+g[i];
     x[i] += velX[i];
     y[i] += velY[i];
-    velY[i] = velY[i]+g[i];
+
 
     //bounce ball if it hits walls
     if (x[i] + diam[i]/2 >= width) {
@@ -43,8 +44,6 @@ void setup() {
     }
     if (y[i] + diam[i]/2 >= height) {
       velY[i] = -abs(velY[i]);
-    } else if (y[i] - diam[i]/2 <= 0) {
-      velY[i] = abs(velY[i]);
     }
-    }
+  }
 }
